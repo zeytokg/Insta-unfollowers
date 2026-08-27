@@ -105,8 +105,10 @@
     .hero{ grid-template-columns: 1fr; }
     .hero-photo{ width:150px; height:150px; order:-1; }
     .stats-row{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:28px 20px; }
-    .case{ grid-template-columns: 1fr; gap:16px; }
-    .case-metric{ border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px; }
+    .case{ grid-template-columns: 1fr; gap:14px; }
+    .case-metric{ border-left:none; padding-left:0; border-top:none; padding-top:0; display:flex; flex-direction:row; align-items:baseline; flex-wrap:wrap; gap:8px 10px; background:var(--accent-soft); padding:10px 14px; border-radius:2px; }
+    .case-metric .stat-num{ font-size:16px; color:var(--ink); }
+    .case-metric .stat-label{ margin-top:0; color:var(--ink-soft); }
     .skills-grid{ grid-template-columns: 1fr; }
     .quotes-grid{ grid-template-columns: 1fr; gap:28px; }
     .two-col{ grid-template-columns: 1fr; gap:16px; }
@@ -118,7 +120,10 @@
 <div class="container">
   <div class="topbar">
     <div class="label">Portfolio</div>
-    <div class="label">Milan, Italy · Open to work</div>
+    <div style="display:flex; gap:24px; align-items:center;">
+      <a href="tools.html" class="label" style="text-decoration:none;">Tools &amp; Platforms</a>
+      <div class="label">Milan, Italy · Open to work</div>
+    </div>
   </div>
 </div>
 <hr class="rule">
@@ -167,14 +172,14 @@
 <!-- CASE STUDIES -->
 <div class="container section">
   <div class="label label-accent" style="margin-bottom:10px;">Selected work</div>
-  <h2 style="font-size:30px; margin-bottom:8px;">What I changed, and what it produced</h2>
+  <h2 style="font-size:30px; margin-bottom:8px;">A few things I've worked on, and how they went</h2>
 
   <div class="case" style="border-top:1px solid var(--line); margin-top:28px;">
     <div style="display:flex; flex-direction:column; gap:10px;">
-      <h3 style="font-size:22px;">Rebuilding delivery for a 40-person product organization</h3>
+      <h3 style="font-size:22px;">Rebuilding delivery for a ~35-person product organization</h3>
       <div class="meta">United Tech · Senior Product Owner · 2025 – 2026</div>
       <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">Situation</span>Duplicate work, unclear ownership and unpredictable releases across Product, Engineering, Design, Narrative, Art and QA.</p>
-      <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">What I did</span>Set up Jira and backlog operations from A to Z, coordinated a 40-person team, aligned team leads on priorities and dependencies, and ran sprint planning, refinement, reviews and retrospectives.</p>
+      <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">What I did</span>Set up Jira and backlog operations from A to Z, and built an 8-stage content production pipeline — design, writing, implementation, art, QA, and build — tracked across 54 characters and 770+ live episodes, with live dashboards on open items per stage. Coordinated a team of around 35, aligned leads on priorities and dependencies, and ran sprint planning, refinement, reviews and retrospectives.</p>
       <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">Outcome</span>Shipped items per sprint rose from 5–10 to 30–50; dropped and duplicated tasks fell sharply and release dates became predictable.</p>
     </div>
     <div class="case-metric">
@@ -188,8 +193,8 @@
       <h3 style="font-size:22px;">Letting the data choose the content roadmap</h3>
       <div class="meta">Narrative-driven mobile game · United Tech · 2025 – 2026</div>
       <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">Situation</span>Character and season decisions were being made on instinct, with limited read on what players actually engaged with or paid for.</p>
-      <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">What I did</span>Used engagement, retention, conversion and monetization data per character to decide which characters get a new season, which content ships next, and what gets tested or deprioritized; reworked the subscription model and offer structure around the same signals.</p>
-      <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">Outcome</span>Content roadmap driven by measured demand, and improved subscription conversion and monetization performance.</p>
+      <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">What I did</span>Reworked the subscription model and offer structure, and shipped features targeting retention and ARPU; ran A/B tests and KPI reporting to guide the roadmap, and wrote and maintained PRDs and Game Design Documents.</p>
+      <p style="font-size:15px; line-height:1.7; color:var(--ink-soft);"><span class="case-star">Outcome</span>Retention, ARPU and subscription conversion all improved, backed by data-led feature and content decisions.</p>
     </div>
     <div class="case-metric">
       <div class="stat-num">↑ Subscription conversion</div>
