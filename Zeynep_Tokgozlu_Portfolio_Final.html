@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zeynep Tokgözlü</title>
+<meta name="description" content="Senior Product Manager portfolio — case studies, metrics, and testimonials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: oklch(98.2% 0.004 90);
+    --bg-alt: oklch(96% 0.006 95);
+    --ink: oklch(21% 0.012 90);
+    --ink-soft: oklch(42% 0.014 90);
+    --ink-faint: oklch(58% 0.012 90);
+    --line: oklch(88% 0.008 90);
+    --accent: #D5A900;
+    --accent-hover: #B18D00;
+    --accent-soft: #FFF3B0;
+    --card: oklch(100% 0 0);
+    --ink-band: oklch(21% 0.012 90);
+    --ink-band-text: oklch(99% 0 0);
+    --ink-band-text-soft: oklch(70% 0.01 90);
+    --ink-band-text-faint: oklch(55% 0.01 90);
+    --ink-band-link: oklch(80% 0.05 95);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: oklch(17% 0.01 90);
+      --bg-alt: oklch(21% 0.012 90);
+      --ink: oklch(94% 0.006 90);
+      --ink-soft: oklch(78% 0.012 90);
+      --ink-faint: oklch(60% 0.012 90);
+      --line: oklch(33% 0.014 90);
+      --accent: #E8C239;
+      --accent-hover: #F3D25B;
+      --accent-soft: oklch(32% 0.045 95);
+      --card: oklch(22% 0.012 90);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg: oklch(17% 0.01 90);
+    --bg-alt: oklch(21% 0.012 90);
+    --ink: oklch(94% 0.006 90);
+    --ink-soft: oklch(78% 0.012 90);
+    --ink-faint: oklch(60% 0.012 90);
+    --line: oklch(33% 0.014 90);
+    --accent: #E8C239;
+    --accent-hover: #F3D25B;
+    --accent-soft: oklch(32% 0.045 95);
+    --card: oklch(22% 0.012 90);
+  }
+  *{ box-sizing: border-box; }
+  body{ margin:0; background: var(--bg); color: var(--ink); font-family: "Work Sans", system-ui, -apple-system, sans-serif; }
+  h1,h2,h3{ font-family: "Source Serif 4", Georgia, serif; font-weight: 500; margin: 0; text-wrap: balance; }
+  a{ color: var(--accent); text-decoration: none; }
+  a:hover{ color: var(--accent-hover); text-decoration: underline; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce){ *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; } }
+  .container{ max-width: 1040px; margin: 0 auto; padding: 0 40px; }
+  .eyebrow{ font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .section{ padding: 88px 0; }
+  .section-alt{ background: var(--bg-alt); }
+  .section-border{ border-top: 1px solid var(--line); }
+  .case{ display:grid; grid-template-columns:minmax(0,1fr) 220px; gap:32px; padding:32px 0; border-top:1px solid var(--line); }
+  .case-metric{ display:flex; flex-direction:column; justify-content:center; gap:4px; border-left:1px solid var(--line); padding-left:24px; }
+  .tag{ font-size:12px; color:var(--accent); background:var(--accent-soft); padding:5px 10px; border-radius:2px; }
+  .skill{ display:flex; flex-direction:column; gap:6px; padding-bottom:20px; border-bottom:1px solid var(--line); }
+  .bar-track{ background:var(--line); height:6px; border-radius:3px; overflow:hidden; }
+  .bar-fill{ background:var(--accent); height:100%; }
+  .quote{ background:var(--card); border:1px solid var(--line); padding:28px; display:flex; flex-direction:column; gap:16px; justify-content:space-between; }
+  .stats-grid{ display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); }
+  .stat{ padding:36px 0; display:flex; flex-direction:column; gap:6px; }
+  .two-col{ display:grid; grid-template-columns:220px minmax(0,1fr); gap:48px; }
+  .skills-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:28px 40px; }
+  .quotes-grid{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:28px; }
+  @media (max-width: 800px){
+    .container{ padding: 0 24px; }
+    .section{ padding: 56px 0; }
+    .stats-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .two-col{ grid-template-columns: 1fr; gap:16px; }
+    .skills-grid{ grid-template-columns: 1fr; }
+    .quotes-grid{ grid-template-columns: 1fr; }
+    .case{ grid-template-columns: 1fr; }
+    .case-metric{ border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:16px; }
+  }
+</style>
+</head>
+<body>
+
+<div style="width:100%">
+
+  <!-- HERO -->
+  <div class="section" style="padding-top:112px; padding-bottom:80px;">
+    <div class="container">
+      <div style="display:flex; flex-direction:column; gap:22px; max-width:760px;">
+        <div class="eyebrow">Milan, Italy · Open to work</div>
+        <h1 style="font-size:52px; line-height:1.08; color:var(--ink);">Zeynep Tokgözlü</h1>
+        <div style="font-size:21px; color:var(--ink-soft); line-height:1.5;">Senior Product Manager — Product Operations &amp; Agile Delivery, LiveOps &amp; Monetization, AI-Powered Digital Products</div>
+        <div style="font-size:16px; color:var(--ink-faint); line-height:1.7; max-width:620px;">6+ years owning end-to-end delivery across consumer mobile products, AI-powered apps, and digital entertainment — with a track record across five #1 US App Store titles.</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:8px;">
+          <a href="mailto:zeyneptokg@gmail.com" style="background:var(--accent); color:var(--ink-band); padding:13px 24px; border-radius:2px; font-size:14px; font-weight:600;">zeyneptokg@gmail.com</a>
+          <a href="https://www.linkedin.com/in/zeytokg/" target="_blank" rel="noopener" style="border:1px solid var(--line); color:var(--ink); padding:13px 24px; border-radius:2px; font-size:14px; font-weight:600;">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS BAND -->
+  <div class="section-border" style="border-bottom:1px solid var(--line); background:var(--ink-band); padding:0;">
+    <div class="container stats-grid">
+      <div class="stat">
+        <div style="font-family:'Source Serif 4', serif; font-size:34px; color:var(--ink-band-text);">220M+</div>
+        <div style="font-size:13px; color:var(--ink-band-text-soft);">Combined downloads</div>
+      </div>
+      <div class="stat">
+        <div style="font-family:'Source Serif 4', serif; font-size:34px; color:var(--ink-band-text);">5</div>
+        <div style="font-size:13px; color:var(--ink-band-text-soft);">#1 US App Store titles</div>
+      </div>
+      <div class="stat">
+        <div style="font-family:'Source Serif 4', serif; font-size:34px; color:var(--ink-band-text);">6+</div>
+        <div style="font-size:13px; color:var(--ink-band-text-soft);">Years of end-to-end product ownership</div>
+      </div>
+      <div class="stat">
+        <div style="font-family:'Source Serif 4', serif; font-size:34px; color:var(--ink-band-text);">47B+</div>
+        <div style="font-size:13px; color:var(--ink-band-text-soft);">AR impressions, Meta Spark AR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <div class="container two-col">
+      <div class="eyebrow">About</div>
+      <div style="display:flex; flex-direction:column; gap:18px; max-width:680px; font-size:17px; line-height:1.75; color:var(--ink-soft);">
+        <p style="margin:0;">Senior Product Manager with a computer engineering background and 6+ years of experience across digital products, AI-powered apps, and mobile products.</p>
+        <p style="margin:0;">My strongest areas are Product Operations, Agile delivery, Jira, cross-functional leadership, and data-driven product decisions. I build delivery processes from the ground up, align multidisciplinary teams, and work across retention, monetization, subscriptions, LiveOps, and experimentation.</p>
+        <p style="margin:0;">AI is part of my daily practice — I use Claude, ChatGPT, and generative AI for research, product specifications, analysis, prompt design, ideation, and prototyping, and I have shipped an AI-powered product end-to-end.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div class="section section-alt section-border">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom:12px;">Selected work</div>
+      <h2 style="font-size:32px; color:var(--ink); margin-bottom:48px;">Outcome-driven product &amp; delivery work</h2>
+
+      <div class="case">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+            <h3 style="font-size:22px; color:var(--ink);">Love Eden — AI-Powered Mobile Narrative</h3>
+            <span style="font-size:13px; color:var(--ink-faint);">United Tech · Sr Product Owner · Jul 2025 – Present · Contract through Sep 2026</span>
+          </div>
+          <div style="font-size:15px; color:var(--ink-soft); line-height:1.65;">Own the end-to-end roadmap and delivery for an AI-powered mobile narrative product. Rebuilt Jira and backlog operations from the ground up, introduced clear ownership and dependency tracking, and lead delivery across Product, Engineering, Design, Narrative, Art, and QA. Use retention, conversion, and monetization data to decide what to ship, test, iterate, or deprioritize.</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span class="tag">Jira &amp; Product Ops</span><span class="tag">AI product</span><span class="tag">Team leadership</span><span class="tag">LiveOps</span>
+          </div>
+        </div>
+        <div class="case-metric">
+          <div style="font-family:'Source Serif 4', serif; font-size:26px; color:var(--ink);">5–10 → 30–50</div>
+          <div style="font-size:13px; color:var(--ink-faint); line-height:1.5;">Shipped items per sprint — up to 5× throughput</div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+            <h3 style="font-size:22px; color:var(--ink);">Royale Online — MMORPG Mobile</h3>
+            <span style="font-size:13px; color:var(--ink-faint);">Byte · Senior Product Manager · Oct 2024 – Mar 2025</span>
+          </div>
+          <div style="font-size:15px; color:var(--ink-soft); line-height:1.65;">Led roadmap execution for a B2C mobile product with strong engagement loops. Built and owned the Lucky Wheel monetization mechanic and localized offers by country/region.</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span class="tag">Monetization</span><span class="tag">LiveOps</span><span class="tag">Localization</span>
+          </div>
+        </div>
+        <div class="case-metric">
+          <div style="font-family:'Source Serif 4', serif; font-size:26px; color:var(--ink);">↑ ARPU</div>
+          <div style="font-size:13px; color:var(--ink-faint); line-height:1.5;">Regional sales growth from localized offers</div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+            <h3 style="font-size:22px; color:var(--ink);">Six Cube — Survival PC Title (Steam)</h3>
+            <span style="font-size:13px; color:var(--ink-faint);">Unipoly Games · Lead Team Manager · Mar – Sep 2024</span>
+          </div>
+          <div style="font-size:15px; color:var(--ink-soft); line-height:1.65;">Led the full in-house development team from early prototype through milestone delivery, owning scope, timeline, and team coordination. Designed progression, difficulty pacing, and economy systems grounded in telemetry and playtest data.</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span class="tag">Team leadership</span><span class="tag">Game economy</span><span class="tag">Steam launch</span>
+          </div>
+        </div>
+        <div class="case-metric">
+          <div style="font-family:'Source Serif 4', serif; font-size:26px; color:var(--ink);">Prototype → Milestones</div>
+          <div style="font-size:13px; color:var(--ink-faint); line-height:1.5;">Scope, timeline, and team coordination owned</div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+            <h3 style="font-size:22px; color:var(--ink);">Wrestling Trivia Run!</h3>
+            <span style="font-size:13px; color:var(--ink-faint);">Joygame / Netmarble-affiliated · Mar 2023 – Feb 2024</span>
+          </div>
+          <div style="font-size:15px; color:var(--ink-soft); line-height:1.65;">Improved early-stage retention through iterative testing and LiveOps optimization, strengthening D3–D7 retention on a chart-topping title.</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span class="tag">Retention</span><span class="tag">LiveOps</span><span class="tag">A/B testing</span>
+          </div>
+        </div>
+        <div class="case-metric">
+          <div style="font-family:'Source Serif 4', serif; font-size:26px; color:var(--ink);">#1 US App Store</div>
+          <div style="font-size:13px; color:var(--ink-faint); line-height:1.5;">1M+ downloads</div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+            <h3 style="font-size:22px; color:var(--ink);">Meme Challenge: Dank Memes</h3>
+            <span style="font-size:13px; color:var(--ink-faint);">MagicLab Game Technologies · Feb 2022 – Mar 2023</span>
+          </div>
+          <div style="font-size:15px; color:var(--ink-soft); line-height:1.65;">Designed and led end-to-end, from concept through launch, as part of a portfolio of titles reaching #1 on the US App Store.</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span class="tag">0→1 launch</span><span class="tag">UA / CPI</span><span class="tag">Casual games</span>
+          </div>
+        </div>
+        <div class="case-metric">
+          <div style="font-family:'Source Serif 4', serif; font-size:26px; color:var(--ink);">$0.15 CPI</div>
+          <div style="font-size:13px; color:var(--ink-faint); line-height:1.5;">#1 US App Store · 10M+ downloads</div>
+        </div>
+      </div>
+
+      <div class="case">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
+            <h3 style="font-size:22px; color:var(--ink);">Meta Spark AR</h3>
+            <span style="font-size:13px; color:var(--ink-faint);">Facebook · Freelance Developer · Jan 2019 – Jun 2024</span>
+          </div>
+          <div style="font-size:15px; color:var(--ink-soft); line-height:1.65;">Created 120+ AR filters and secured top-200 placements in the Spark AR Cyberpunk 2077 and Holiday Spark competitions.</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+            <span class="tag">AR / Creative tech</span><span class="tag">Spark AR</span>
+          </div>
+        </div>
+        <div class="case-metric">
+          <div style="font-family:'Source Serif 4', serif; font-size:26px; color:var(--ink);">47B+</div>
+          <div style="font-size:13px; color:var(--ink-faint); line-height:1.5;">Impressions across 120+ effects</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="container two-col">
+      <div class="eyebrow">Professional focus areas</div>
+      <div class="skills-grid">
+        <div class="skill"><div style="font-size:15px; font-weight:600; color:var(--ink);">Product Leadership</div><div style="font-size:14px; color:var(--ink-faint); line-height:1.6;">Team leadership, cross-functional lead alignment, roadmap ownership, prioritization, stakeholder management</div></div>
+        <div class="skill"><div style="font-size:15px; font-weight:600; color:var(--ink);">Agile Delivery &amp; Jira</div><div style="font-size:14px; color:var(--ink-faint); line-height:1.6;">Sprint planning, backlog refinement, reviews, retrospectives, release planning, Jira workflows &amp; automation, capacity &amp; dependency management</div></div>
+        <div class="skill"><div style="font-size:15px; font-weight:600; color:var(--ink);">LiveOps &amp; Monetization</div><div style="font-size:14px; color:var(--ink-faint); line-height:1.6;">IAP bundles &amp; pricing, segmentation, A/B testing, ARPU/LTV optimization, subscriptions</div></div>
+        <div class="skill"><div style="font-size:15px; font-weight:600; color:var(--ink);">Data &amp; Analytics</div><div style="font-size:14px; color:var(--ink-faint); line-height:1.6;">Retention, conversion, monetization, funnel and behavioral data — SQL, Firebase, Segment, GA, Amplitude</div></div>
+        <div class="skill"><div style="font-size:15px; font-weight:600; color:var(--ink);">Product Design &amp; Prototyping</div><div style="font-size:14px; color:var(--ink-faint); line-height:1.6;">Economy balancing, core loop refinement, PRDs &amp; GDDs, Unity and Figma prototyping</div></div>
+        <div class="skill"><div style="font-size:15px; font-weight:600; color:var(--ink);">AI Tools &amp; Workflows</div><div style="font-size:14px; color:var(--ink-faint); line-height:1.6;">ChatGPT &amp; Claude for research, specs, analysis and prompt design; generative AI for ideation and prototyping; AI-powered product delivery</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 360 FEEDBACK -->
+  <div class="section">
+    <div class="container two-col">
+      <div>
+        <div class="eyebrow">360° feedback</div>
+        <div style="font-size:13px; color:var(--ink-faint); margin-top:10px; line-height:1.6;">Structured peer &amp; self-assessment, United Tech · 2026</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:18px; max-width:620px;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;"><div style="font-size:15px; font-weight:600; color:var(--ink);">High Motivation</div><div style="font-size:14px; color:var(--ink-faint);">92%</div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:92%;"></div></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;"><div style="font-size:15px; font-weight:600; color:var(--ink);">Emotional Maturity</div><div style="font-size:14px; color:var(--ink-faint);">88%</div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:88%;"></div></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;"><div style="font-size:15px; font-weight:600; color:var(--ink);">Speed &amp; Deadline</div><div style="font-size:14px; color:var(--ink-faint);">86%</div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:86%;"></div></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;"><div style="font-size:15px; font-weight:600; color:var(--ink);">Team Player</div><div style="font-size:14px; color:var(--ink-faint);">85%</div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:85%;"></div></div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline;"><div style="font-size:15px; font-weight:600; color:var(--ink);">Communication Skills</div><div style="font-size:14px; color:var(--ink-faint);">84%</div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:84%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="section section-alt section-border">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom:12px;">What people say</div>
+      <h2 style="font-size:32px; color:var(--ink); margin-bottom:44px;">From clients, peers, and direct reports</h2>
+      <div class="quotes-grid">
+        <div class="quote">
+          <div style="font-size:15px; line-height:1.65; color:var(--ink-soft);">"Two things stood out. Clarity of communication — Zeynep consistently made priorities explicit. And consistency of delivery — deadlines held, scope stayed realistic."</div>
+          <div><div style="font-size:14px; font-weight:600; color:var(--ink);">Šime Matulić</div><div style="font-size:12px; color:var(--ink-faint);">CMO &amp; CPO at aceIT · Client</div></div>
+        </div>
+        <div class="quote">
+          <div style="font-size:15px; line-height:1.65; color:var(--ink-soft);">"She took complete ownership of setting up and managing Jira and bringing structure to our workflows and processes across the organisation."</div>
+          <div><div style="font-size:14px; font-weight:600; color:var(--ink);">Sufia Islam</div><div style="font-size:12px; color:var(--ink-faint);">Lead, Growth Marketing &amp; Revenue</div></div>
+        </div>
+        <div class="quote">
+          <div style="font-size:15px; line-height:1.65; color:var(--ink-soft);">"You did an awesome job with Jira automation and saved us a lot of time and nerves. Thanks for being a great colleague."</div>
+          <div><div style="font-size:14px; font-weight:600; color:var(--ink);">Djordje Basic</div><div style="font-size:12px; color:var(--ink-faint);">Senior Technical Artist</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="container two-col">
+      <div class="eyebrow">Education</div>
+      <div style="display:flex; flex-direction:column; gap:24px; max-width:620px;">
+        <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink);">MSc, Innovation and Technology Management</div>
+            <div style="font-size:14px; color:var(--ink-faint);">Università Cattolica del Sacro Cuore, Milan · 50% Scholarship</div>
+          </div>
+          <div style="font-size:13px; color:var(--ink-faint); white-space:nowrap;">2026 – Present</div>
+        </div>
+        <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:16px; font-weight:600; color:var(--ink);">BSc, Computer Engineering</div>
+            <div style="font-size:14px; color:var(--ink-faint);">Izmir University of Economics · 50% Scholarship</div>
+          </div>
+          <div style="font-size:13px; color:var(--ink-faint); white-space:nowrap;">2017 – 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT / FOOTER -->
+  <div style="background:var(--ink-band); padding:64px 0;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;">
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <h2 style="font-size:26px; color:var(--ink-band-text);">Let's talk about your product.</h2>
+        <div style="display:flex; gap:18px; flex-wrap:wrap;">
+          <a href="mailto:zeyneptokg@gmail.com" style="color:var(--ink-band-link); font-size:14px;">zeyneptokg@gmail.com</a>
+          <a href="https://www.linkedin.com/in/zeytokg/" target="_blank" rel="noopener" style="color:var(--ink-band-link); font-size:14px;">LinkedIn</a>
+        </div>
+      </div>
+      <div style="font-size:12px; color:var(--ink-band-text-faint);">Turkish (Native) · English (C1) · Italian (A2)</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
