@@ -28,7 +28,7 @@ Written from scratch, loosely inspired by the general idea behind
 
 ## Files
 
-- `instagram-unfollower.js` — the tool itself, pasted into the console. Has
+- `instagram-unfollowers.js` — the tool itself, pasted into the console. Has
   its own EN/TR toggle in the panel header (separate from the site's).
 - `index.html` — a simple landing page with usage instructions and the
   copyable code (ready for GitHub Pages). Has an EN/TR toggle in the top
@@ -40,7 +40,7 @@ Written from scratch, loosely inspired by the general idea behind
 
 1. Log into `https://www.instagram.com`.
 2. Open DevTools console (Windows/Linux: `Ctrl+Shift+J`, macOS: `Cmd+Option+J`).
-3. Copy the contents of `instagram-unfollower.js`, paste into the console, press Enter.
+3. Copy the contents of `instagram-unfollowers.js`, paste into the console, press Enter.
    (If Chrome blocks pasting, type `allow pasting` first, then paste again.)
 4. Click **Scan now** in the panel that appears.
 5. Search/filter the results, copy usernames, or unfollow a selection
@@ -49,7 +49,7 @@ Written from scratch, loosely inspired by the general idea behind
 ## Publishing on GitHub Pages
 
 1. Push this folder to a GitHub repo (`index.html` and
-   `instagram-unfollower.js` need to be at the repo root).
+   `instagram-unfollowers.js` need to be at the repo root).
 2. In the repo's **Settings → Pages**, set the source to the `main`
    branch / root folder.
 3. Within a few minutes it'll be live at
