@@ -78,6 +78,18 @@
   .step .num{ flex:none; width:26px; height:26px; border-radius:50%; background:var(--accent-soft); color:var(--accent-hover); border:1px solid color-mix(in srgb, var(--accent) 35%, transparent); display:flex; align-items:center; justify-content:center; font-family:"Work Sans", sans-serif; font-size:12px; font-weight:700; }
   .step p{ font-family:"Source Serif 4", serif; margin:0; font-size:15px; line-height:1.6; color:var(--ink); padding-top:2px; }
   .step code{ background:var(--bg-alt); border:1px solid var(--line); padding:1px 7px; border-radius:5px; font-family:"Work Sans", monospace; font-size:13px; }
+  .gallery{ display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+  .shot{ display:block; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:var(--bg-alt); box-shadow:0 6px 18px color-mix(in srgb, var(--ink) 12%, transparent); transition:transform .2s ease, border-color .2s ease; }
+  .shot:hover{ transform:translateY(-2px); border-color:var(--accent); }
+  .shot img{ display:block; width:100%; height:150px; object-fit:cover; object-position:top; }
+  .shot span{ display:block; font-family:"Work Sans", sans-serif; font-size:11.5px; color:var(--ink-faint); padding:8px 10px; border-top:1px solid var(--line); }
+  @media (max-width:480px){ .gallery{ grid-template-columns:1fr; } }
+
+  .security-cta{ display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:18px; padding:16px 18px; border:1.5px solid var(--line-strong); border-radius:12px; text-decoration:none !important; transition:border-color .2s ease, background .2s ease, transform .2s ease; }
+  .security-cta:hover{ border-color:var(--accent); background:color-mix(in srgb, var(--accent) 8%, transparent); transform:translateY(-2px); }
+  .security-cta strong{ font-family:"Work Sans", sans-serif; font-size:14px; color:var(--ink); display:block; }
+  .security-cta small{ font-family:"Source Serif 4", serif; font-size:13px; color:var(--ink-faint); }
+  .security-cta .arrow{ flex:none; color:var(--accent); font-size:18px; }
 
   .codebox{ position:relative; }
   pre{ margin:0; padding:18px; background: var(--ink); color: var(--bg); border-radius:10px; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px; line-height:1.6; max-height:260px; }
@@ -161,11 +173,41 @@
       </div>
     </div>
 
+    <div class="section">
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="shotsTitle">Screenshots</span></h2>
+        <div class="gallery">
+          <a class="shot" href="Images/step2-open-console.png" target="_blank" rel="noopener">
+            <img src="Images/step2-open-console.png" alt="Opening the developer console" loading="lazy">
+            <span data-i18n="shot2">Opening the developer console</span>
+          </a>
+          <a class="shot" href="Images/step3-paste-code.png" target="_blank" rel="noopener">
+            <img src="Images/step3-paste-code.png" alt="The script pasted into the console" loading="lazy">
+            <span data-i18n="shot3">The script pasted into the console</span>
+          </a>
+          <a class="shot" href="Images/step4-results.png" target="_blank" rel="noopener">
+            <img src="Images/step4-results.png" alt="The panel listing accounts that don't follow back" loading="lazy">
+            <span data-i18n="shot4">Accounts that don't follow you back</span>
+          </a>
+          <a class="shot" href="Images/step5-select-unfollow.png" target="_blank" rel="noopener">
+            <img src="Images/step5-select-unfollow.png" alt="Selecting accounts to unfollow" loading="lazy">
+            <span data-i18n="shot5">Selecting accounts to unfollow</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <hr class="rule">
     <footer>
       <span data-i18n="footer1">Open source, written by <b>zeytokg</b>.</span><br>
-      <span data-i18n="footer2">Not an official Instagram product, not affiliated with Meta.</span><br>
-      <a href="security.html" data-i18n="securityLink">Security &amp; verification</a>
+      <span data-i18n="footer2">Not an official Instagram product, not affiliated with Meta.</span>
+      <a class="security-cta" href="security.html">
+        <span>
+          <strong data-i18n="securityLink">Security &amp; verification</strong>
+          <small data-i18n="securitySub">Verify the file hash and see exactly what this tool does</small>
+        </span>
+        <span class="arrow" aria-hidden="true">&#8594;</span>
+      </a>
     </footer>
   </div>
 
@@ -195,9 +237,15 @@
         does3: "Includes search, filters (verified / private), hide, and copy.",
         does4: "Lets you unfollow a selection slowly and safely, with pause/cancel controls.",
         does5: "Nothing on your account changes during the scan itself.",
+        shotsTitle: "Screenshots",
+        shot2: "Opening the developer console",
+        shot3: "The script pasted into the console",
+        shot4: "Accounts that don't follow you back",
+        shot5: "Selecting accounts to unfollow",
         footer1: "Open source, written by <b>zeytokg</b>.",
         footer2: "Not an official Instagram product, not affiliated with Meta.",
-        securityLink: "Security &amp; verification"
+        securityLink: "Security &amp; verification",
+        securitySub: "Verify the file hash and see exactly what this tool does"
       },
       tr: {
         htmlLang: "tr",
@@ -222,9 +270,15 @@
         does3: "Arama, filtre (onaylı / gizli hesap), gizle ve kopyalama içerir.",
         does4: "Seçtiklerini yavaş ve güvenli şekilde, duraklat/iptal kontrolleriyle takipten çıkarmanı sağlar.",
         does5: "Tarama sırasında hesabında hiçbir şey değişmez.",
+        shotsTitle: "Ekran görüntüleri",
+        shot2: "Geliştirici konsolunu açma",
+        shot3: "Konsola yapıştırılmış kod",
+        shot4: "Seni geri takip etmeyen hesaplar",
+        shot5: "Takipten çıkarılacak hesapları seçme",
         footer1: "Açık kaynak, <b>zeytokg</b> tarafından yazıldı.",
         footer2: "Resmi bir Instagram ürünü değildir, Meta ile ilişkili değildir.",
-        securityLink: "Güvenlik &amp; doğrulama"
+        securityLink: "Güvenlik &amp; doğrulama",
+        securitySub: "Dosya hash'ini doğrula ve bu aracın tam olarak ne yaptığını gör"
       }
     };
 
