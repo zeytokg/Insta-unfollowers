@@ -6,7 +6,10 @@ A single-file, console-pasteable tool that scans the accounts you follow on
 Instagram and shows you which ones don't follow you back. Comes with a
 simple landing page you can publish on GitHub Pages.
 
-
+Written from scratch, loosely inspired by the general idea behind
+[cobanov/instagram](https://github.com/cobanov/instagram) and
+[davidarroyo1234/InstagramUnfollowers](https://github.com/davidarroyo1234/InstagramUnfollowers)
+— the code itself is original, not copied from either.
 
 ## How it works
 

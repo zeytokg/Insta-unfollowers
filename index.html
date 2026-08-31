@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instagram Unfollowers Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: oklch(98.2% 0.004 90);
+    --bg-alt: oklch(96% 0.006 95);
+    --ink: oklch(21% 0.012 90);
+    --ink-soft: oklch(40% 0.014 90);
+    --ink-faint: oklch(56% 0.012 90);
+    --line: oklch(85% 0.008 90);
+    --line-strong: oklch(72% 0.01 90);
+    --accent: #DD2A7B;
+    --accent-hover: #B81F63;
+    --accent-soft: #FBD6E7;
+    --card: oklch(100% 0 0);
+    --on-accent: #ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg: oklch(16% 0.01 90);
+      --bg-alt: oklch(20% 0.012 90);
+      --ink: oklch(94% 0.006 90);
+      --ink-soft: oklch(76% 0.012 90);
+      --ink-faint: oklch(58% 0.012 90);
+      --line: oklch(32% 0.014 90);
+      --line-strong: oklch(42% 0.014 90);
+      --accent: #FF5C9E;
+      --accent-hover: #FF83B4;
+      --accent-soft: oklch(32% 0.05 350);
+      --card: oklch(21% 0.012 90);
+    }
+  }
+  *{ box-sizing: border-box; }
+  body{ margin:0; background: var(--bg); color: var(--ink); font-family: "Source Serif 4", Georgia, serif; overflow-wrap:break-word; }
+  h1,h2{ font-family: "Source Serif 4", Georgia, serif; font-weight: 600; margin: 0; text-wrap: balance; line-height:1.28; }
+  p{ margin:0; }
+  a{ color: var(--accent); text-decoration: none; }
+  a:hover{ color: var(--accent-hover); text-decoration: underline; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce){ *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; } }
+
+  .container{ max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .label{ font-family:"Work Sans", sans-serif; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
+  .label-accent{ color: var(--accent); }
+  .rule{ border:none; border-top: 1px solid var(--line); margin:0; }
+
+  .topbar{ display:flex; justify-content:space-between; align-items:center; padding: 26px 0; gap:12px; flex-wrap:wrap; }
+  .wordmark{ font-family:"Work Sans", sans-serif; font-weight:700; font-size:13px; letter-spacing:0.02em; color:var(--ink); }
+  .topbar-right{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .nav-btn{ font-family:"Work Sans", sans-serif; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; font-weight:700; color:var(--ink) !important; border:1.5px solid var(--line); padding:8px 14px; border-radius:999px; text-decoration:none !important; display:inline-flex; align-items:center; gap:6px; transition: background .2s ease, transform .2s ease, border-color .2s ease; background:none; cursor:pointer; }
+  .nav-btn:hover{ border-color:var(--accent); background:color-mix(in srgb, var(--accent) 12%, transparent); transform:translateY(-2px); }
+  .lang-btn{ color:var(--accent) !important; border-color:color-mix(in srgb, var(--accent) 45%, var(--line)); }
+
+  .hero{ padding: 20px 0 12px; }
+  .badge{ display:inline-flex; align-items:center; gap:8px; font-family:"Work Sans", sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); border:1px solid var(--line); padding:7px 14px; border-radius:999px; margin-bottom:22px; }
+  .badge-dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+  .hero h1{ font-size: clamp(28px, 5vw, 40px); margin-bottom:10px; }
+  .byline{ font-family:"Work Sans", sans-serif; font-size:13px; color:var(--ink-faint); margin-bottom:18px; }
+  .byline b{ color:var(--accent); font-weight:700; }
+  .hero p{ font-family:"Source Serif 4", serif; font-size:17px; line-height:1.6; color:var(--ink-soft); max-width:560px; }
+
+  .section{ padding: 28px 0; }
+
+  .callout{ border:1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); border-radius:12px; padding:20px 24px; background:var(--accent-soft); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .callout p{ font-family:"Source Serif 4", serif; font-size:14.5px; line-height:1.5; color:var(--ink); max-width:440px; }
+  .callout p b{ color:var(--accent-hover); }
+  .callout-btn{ flex:none; font-family:"Work Sans", sans-serif; font-weight:700; font-size:12.5px; color:#fff !important; background:linear-gradient(135deg,#ff3f91,#ff70ae); padding:11px 20px; border-radius:999px; text-decoration:none !important; white-space:nowrap; box-shadow:0 10px 22px rgba(221,42,123,.24); transition:transform .2s ease, filter .2s ease; }
+  .callout-btn:hover{ filter:brightness(1.06); transform:translateY(-2px); }
+
+  .card{ border:1px solid var(--line); border-radius:12px; padding:28px; background:var(--card); transition:border-color .2s ease, transform .2s ease; }
+  .card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+  .card h2{ font-size:18px; margin-bottom:16px; display:flex; align-items:center; gap:9px; }
+  .card h2 .dot{ width:7px; height:7px; border-radius:2px; background:var(--accent); flex:none; }
+
+  .step{ display:flex; gap:16px; align-items:flex-start; margin-bottom:18px; }
+  .step:last-child{ margin-bottom:0; }
+  .step .num{ flex:none; width:26px; height:26px; border-radius:50%; background:var(--accent-soft); color:var(--accent-hover); border:1px solid color-mix(in srgb, var(--accent) 35%, transparent); display:flex; align-items:center; justify-content:center; font-family:"Work Sans", sans-serif; font-size:12px; font-weight:700; }
+  .step p{ font-family:"Source Serif 4", serif; margin:0; font-size:15px; line-height:1.6; color:var(--ink); padding-top:2px; }
+  .step code{ background:var(--bg-alt); border:1px solid var(--line); padding:1px 7px; border-radius:5px; font-family:"Work Sans", monospace; font-size:13px; }
+  .gallery{ display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; }
+  .shot{ display:block; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:var(--bg-alt); box-shadow:0 6px 18px color-mix(in srgb, var(--ink) 12%, transparent); transition:transform .2s ease, border-color .2s ease; }
+  .shot:hover{ transform:translateY(-2px); border-color:var(--accent); }
+  .shot img{ display:block; width:100%; height:150px; object-fit:cover; object-position:top; }
+  .shot span{ display:block; font-family:"Work Sans", sans-serif; font-size:11.5px; color:var(--ink-faint); padding:8px 10px; border-top:1px solid var(--line); }
+  @media (max-width:480px){ .gallery{ grid-template-columns:1fr; } }
+
+  .security-cta{ display:flex; align-items:center; justify-content:space-between; gap:14px; margin:0 0 18px; padding:16px 18px; border:1.5px solid var(--line-strong); border-radius:12px; text-decoration:none !important; transition:border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease; }
+  .security-cta:hover{ border-color:var(--accent); background:color-mix(in srgb, var(--accent) 8%, transparent); transform:translateY(-3px); box-shadow:0 10px 26px color-mix(in srgb, var(--ink) 10%, transparent); }
+  .security-cta strong{ font-family:"Work Sans", sans-serif; font-size:14px; color:var(--ink); display:block; }
+  .security-cta small{ font-family:"Source Serif 4", serif; font-size:13px; color:var(--ink-faint); }
+  .security-cta .arrow{ flex:none; color:var(--accent); font-size:18px; transition:transform .2s ease; }
+  .security-cta:hover .arrow{ transform:translateX(4px); }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
+  .terminal{ border-radius:10px; overflow:hidden; background:#151515; box-shadow:0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06); }
+  .terminal-bar{ display:flex; align-items:center; gap:12px; padding:10px 12px; background:#232323; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .terminal-dots{ display:flex; gap:7px; flex:none; }
+  .terminal-dots span{ width:11px; height:11px; border-radius:50%; display:block; }
+  .terminal-dots span:nth-child(1){ background:#ff5f56; }
+  .terminal-dots span:nth-child(2){ background:#ffbd2e; }
+  .terminal-dots span:nth-child(3){ background:#27c93f; }
+  .terminal-title{ flex:1; text-align:center; font-family:"Work Sans", monospace; font-size:11.5px; color:#8a8a8a; letter-spacing:0.02em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .terminal .copybtn{ flex:none; padding:5px 13px; border:1px solid rgba(255,255,255,0.12); border-radius:999px; background:rgba(255,255,255,0.06); color:#e5e5e5; font-family:"Work Sans", sans-serif; font-weight:600; font-size:11px; cursor:pointer; transition:background .2s ease, border-color .2s ease; }
+  .terminal .copybtn:hover{ background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.25); }
+  .terminal .copybtn:active{ transform:translateY(1px); }
+  pre{ margin:0; padding:18px; background:#151515; color:#d8d8d8; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px; line-height:1.6; max-height:320px; }
+  pre::before{ content:"> "; color:#27c93f; }
+
+  .list{ margin:0; padding-left:0; list-style:none; font-family:"Source Serif 4", serif; font-size:15px; line-height:1.5; color:var(--ink); display:flex; flex-direction:column; gap:12px; }
+  .list li{ padding-left:20px; position:relative; }
+  .list li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:2px; background:var(--accent); }
+
+  footer{ text-align:center; color:var(--ink-faint); font-family:"Work Sans", sans-serif; font-size:12px; margin-top:36px; padding: 26px 0 50px; line-height:1.9; }
+  footer b{ color:var(--accent); }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <span class="wordmark">instagram-unfollower.js</span>
+      <div class="topbar-right">
+        <a class="nav-btn" href="https://github.com/zeytokg" target="_blank" rel="noopener">by zeytokg</a>
+        <button class="nav-btn lang-btn" id="langBtn" type="button" aria-label="Switch language">TR</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <span class="badge"><span class="badge-dot"></span><span data-i18n="badge">console tool &middot; single file &middot; nothing leaves your browser</span></span>
+      <h1 data-i18n="title">Instagram Unfollowers Finder</h1>
+      <div class="byline">by <b>zeytokg</b></div>
+      <p data-i18n="intro">Scans the accounts you follow and shows you who doesn't follow you
+      back. Everything runs in your own browser, using your own session —
+      no data is ever sent anywhere else.</p>
+    </div>
+
+    <div class="section reveal" style="padding-bottom:0;">
+      <div class="callout">
+        <p data-i18n="calloutExtText">Prefer not to touch the console at all? Install the <b>Chrome extension</b> instead — click the heart, panel opens right there.</p>
+        <a class="callout-btn" href="extension.html" data-i18n="calloutExtBtn">Get the extension →</a>
+      </div>
+    </div>
+
+    <div class="section reveal">
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="howTitle">How to use it</span></h2>
+        <div class="step">
+          <span class="num">1</span>
+          <p data-i18n="step1">Log into <a href="https://www.instagram.com" target="_blank" rel="noopener">instagram.com</a>.</p>
+        </div>
+        <div class="step">
+          <span class="num">2</span>
+          <p data-i18n="step2">Open your browser's developer console — <code>Ctrl+Shift+J</code>
+          on Windows/Linux, <code>Cmd+Option+J</code> on macOS.</p>
+        </div>
+        <div class="step">
+          <span class="num">3</span>
+          <p data-i18n="step3">Copy the code below, paste it into the console, and press Enter.
+          If Chrome blocks pasting, type <code>allow pasting</code>, press
+          Enter, then paste again.</p>
+        </div>
+        <div class="step">
+          <span class="num">4</span>
+          <p data-i18n="step4">Click <strong>"Scan now"</strong> in the panel that appears in
+          the top-right corner.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section reveal">
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="codeTitle">The code</span></h2>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dots"><span></span><span></span><span></span></span>
+            <span class="terminal-title">console — instagram.com</span>
+            <button class="copybtn" id="copyBtn" type="button" data-i18n="copyBtn">Copy</button>
+          </div>
+          <pre id="code">// loading code...</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="section reveal">
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="doesTitle">What it does</span></h2>
+        <ul class="list">
+          <li data-i18n="does1">Only scans the accounts you follow (not your entire follower list).</li>
+          <li data-i18n="does2">Uses Instagram's own follow-back status to find who doesn't follow you back.</li>
+          <li data-i18n="does3">Includes search, filters (verified / private), hide, and copy.</li>
+          <li data-i18n="does4">Lets you unfollow a selection slowly and safely, with pause/cancel controls.</li>
+          <li data-i18n="does5">Nothing on your account changes during the scan itself.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section reveal">
+      <div class="card">
+        <h2><span class="dot"></span><span data-i18n="shotsTitle">Screenshots</span></h2>
+        <div class="gallery">
+          <a class="shot" href="Images/step2-open-console.png" target="_blank" rel="noopener">
+            <img src="Images/step2-open-console.png" alt="Opening the developer console" loading="lazy">
+            <span data-i18n="shot2">Opening the developer console</span>
+          </a>
+          <a class="shot" href="Images/step3-paste-code.png" target="_blank" rel="noopener">
+            <img src="Images/step3-paste-code.png" alt="The script pasted into the console" loading="lazy">
+            <span data-i18n="shot3">The script pasted into the console</span>
+          </a>
+          <a class="shot" href="Images/step4-results.png" target="_blank" rel="noopener">
+            <img src="Images/step4-results.png" alt="The panel listing accounts that don't follow back" loading="lazy">
+            <span data-i18n="shot4">Accounts that don't follow you back</span>
+          </a>
+          <a class="shot" href="Images/step5-select-unfollow.png" target="_blank" rel="noopener">
+            <img src="Images/step5-select-unfollow.png" alt="Selecting accounts to unfollow" loading="lazy">
+            <span data-i18n="shot5">Selecting accounts to unfollow</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <footer>
+      <a class="security-cta reveal" href="security.html">
+        <span>
+          <strong data-i18n="securityLink">Security &amp; verification</strong>
+          <small data-i18n="securitySub">Verify the file hash and see exactly what this tool does</small>
+        </span>
+        <span class="arrow" aria-hidden="true">&#8594;</span>
+      </a>
+      <span data-i18n="footer1">Open source, written by <b>zeytokg</b>.</span><br>
+      <span data-i18n="footer2">Not an official Instagram product, not affiliated with Meta.</span>
+    </footer>
+  </div>
+
+  <script>
+    // ---- translations ----
+    const I18N = {
+      en: {
+        htmlLang: "en",
+        pageTitle: "Instagram Unfollowers Finder",
+        langBtn: "TR",
+        badge: "console tool &middot; single file &middot; nothing leaves your browser",
+        title: "Instagram Unfollowers Finder",
+        intro: "Scans the accounts you follow and shows you who doesn't follow you back. Everything runs in your own browser, using your own session — no data is ever sent anywhere else.",
+        calloutExtText: "Prefer not to touch the console at all? Install the <b>Chrome extension</b> instead — click the heart, panel opens right there.",
+        calloutExtBtn: "Get the extension →",
+        howTitle: "How to use it",
+        step1: 'Log into <a href="https://www.instagram.com" target="_blank" rel="noopener">instagram.com</a>.',
+        step2: "Open your browser's developer console — <code>Ctrl+Shift+J</code> on Windows/Linux, <code>Cmd+Option+J</code> on macOS.",
+        step3: "Copy the code below, paste it into the console, and press Enter. If Chrome blocks pasting, type <code>allow pasting</code>, press Enter, then paste again.",
+        step4: 'Click <strong>"Scan now"</strong> in the panel that appears in the top-right corner.',
+        codeTitle: "The code",
+        copyBtn: "Copy",
+        copiedBtn: "Copied!",
+        copyFail: "Copy failed — you can select the code manually and copy it.",
+        loadFail: "Couldn't load instagram-unfollower.js. Make sure it's in the same folder.",
+        doesTitle: "What it does",
+        does1: "Only scans the accounts you follow (not your entire follower list).",
+        does2: "Uses Instagram's own follow-back status to find who doesn't follow you back.",
+        does3: "Includes search, filters (verified / private), hide, and copy.",
+        does4: "Lets you unfollow a selection slowly and safely, with pause/cancel controls.",
+        does5: "Nothing on your account changes during the scan itself.",
+        shotsTitle: "Screenshots",
+        shot2: "Opening the developer console",
+        shot3: "The script pasted into the console",
+        shot4: "Accounts that don't follow you back",
+        shot5: "Selecting accounts to unfollow",
+        footer1: "Open source, written by <b>zeytokg</b>.",
+        footer2: "Not an official Instagram product, not affiliated with Meta.",
+        securityLink: "Security &amp; verification",
+        securitySub: "Verify the file hash and see exactly what this tool does"
+      },
+      tr: {
+        htmlLang: "tr",
+        pageTitle: "Instagram Takip Etmeyenler Bulucu",
+        langBtn: "EN",
+        badge: "konsol aracı &middot; tek dosya &middot; hiçbir veri tarayıcından çıkmaz",
+        title: "Instagram Takip Etmeyenler Bulucu",
+        intro: "Takip ettiğin hesapları tarar ve seni geri takip etmeyenleri gösterir. Her şey kendi tarayıcında, kendi oturumunla çalışır — hiçbir veri başka bir yere gönderilmez.",
+        calloutExtText: "Konsola hiç dokunmak istemiyor musun? Bunun yerine <b>Chrome eklentisi</b>ni kur — kalbe tıkla, panel hemen orada açılsın.",
+        calloutExtBtn: "Eklentiyi al →",
+        howTitle: "Nasıl kullanılır",
+        step1: '<a href="https://www.instagram.com" target="_blank" rel="noopener">instagram.com</a>\'a giriş yap.',
+        step2: "Tarayıcının geliştirici konsolunu aç — Windows/Linux'ta <code>Ctrl+Shift+J</code>, macOS'te <code>Cmd+Option+J</code>.",
+        step3: "Aşağıdaki kodu kopyala, konsola yapıştır ve Enter'a bas. Chrome yapıştırmayı engellerse önce <code>allow pasting</code> yaz, Enter'a bas, sonra tekrar yapıştır.",
+        step4: 'Sağ üstte açılan panelden <strong>"Taramayı başlat"</strong>a bas.',
+        codeTitle: "Kod",
+        copyBtn: "Kopyala",
+        copiedBtn: "Kopyalandı!",
+        copyFail: "Kopyalama başarısız oldu — kodu elle seçip kopyalayabilirsin.",
+        loadFail: "instagram-unfollower.js yüklenemedi. Aynı klasörde olduğundan emin ol.",
+        doesTitle: "Neler yapar",
+        does1: "Sadece takip ettiğin hesapları tarar (tüm takipçi listeni değil).",
+        does2: "Instagram'ın geri takip durumunu kullanarak seni takip etmeyenleri bulur.",
+        does3: "Arama, filtre (onaylı / gizli hesap), gizle ve kopyalama içerir.",
+        does4: "Seçtiklerini yavaş ve güvenli şekilde, duraklat/iptal kontrolleriyle takipten çıkarmanı sağlar.",
+        does5: "Tarama sırasında hesabında hiçbir şey değişmez.",
+        shotsTitle: "Ekran görüntüleri",
+        shot2: "Geliştirici konsolunu açma",
+        shot3: "Konsola yapıştırılmış kod",
+        shot4: "Seni geri takip etmeyen hesaplar",
+        shot5: "Takipten çıkarılacak hesapları seçme",
+        footer1: "Açık kaynak, <b>zeytokg</b> tarafından yazıldı.",
+        footer2: "Resmi bir Instagram ürünü değildir, Meta ile ilişkili değildir.",
+        securityLink: "Güvenlik &amp; doğrulama",
+        securitySub: "Dosya hash'ini doğrula ve bu aracın tam olarak ne yaptığını gör"
+      }
+    };
+
+    const STORAGE_KEY = "igu_site_lang";
+    let currentLang = "en";
+
+    function applyLang(lang) {
+      const dict = I18N[lang] || I18N.en;
+      currentLang = lang;
+      document.documentElement.lang = dict.htmlLang;
+      document.title = dict.pageTitle;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+      const langBtn = document.getElementById("langBtn");
+      if (langBtn) langBtn.textContent = dict.langBtn;
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch { /* ignore */ }
+    }
+
+    document.getElementById("langBtn").addEventListener("click", () => {
+      applyLang(currentLang === "en" ? "tr" : "en");
+    });
+
+    (function initLang() {
+      // Always starts in English; only switches to Turkish if the visitor
+      // has explicitly toggled it before (remembered via localStorage).
+      let saved = null;
+      try { saved = localStorage.getItem(STORAGE_KEY); } catch { /* ignore */ }
+      if (saved === "tr" || saved === "en") {
+        applyLang(saved);
+      }
+    })();
+
+    // ---- load & show the console script ----
+    fetch("instagram-unfollower.js")
+      .then((r) => r.text())
+      .then((text) => {
+        document.getElementById("code").textContent = text;
+        document.getElementById("copyBtn").addEventListener("click", async () => {
+          const dict = I18N[currentLang] || I18N.en;
+          try {
+            await navigator.clipboard.writeText(text);
+            const btn = document.getElementById("copyBtn");
+            const old = btn.textContent;
+            btn.textContent = dict.copiedBtn;
+            setTimeout(() => (btn.textContent = old), 1500);
+          } catch {
+            alert(dict.copyFail);
+          }
+        });
+      })
+      .catch(() => {
+        const dict = I18N[currentLang] || I18N.en;
+        document.getElementById("code").textContent = dict.loadFail;
+      });
+
+
+    // ---- subtle scroll reveal ----
+    (() => {
+      const items = document.querySelectorAll(".reveal");
+      if (!items.length) return;
+      if (!("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("is-visible"));
+        return;
+      }
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
